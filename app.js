@@ -1199,3 +1199,124 @@ function convertToInteger(str) {
  }
  
  convertToInteger("56");
+
+//  Use the parseInt Function with a Radix
+function convertToInteger(str) {
+  const converted = parseInt(str, 2);
+    return converted;
+}
+
+convertToInteger("10011");
+
+//Use the Conditional (Ternary) Operator
+function checkEqual(a, b) {
+  return a === b ? "Equal" : "Not Equal";
+}
+console.log(checkEqual(1, 2));
+
+//  Use Multiple Conditional (Ternary Operators)
+function checkSign(num) {
+  return (num > 0) ? "positive"
+    : (num < 0) ? "negative"
+    : "zero"
+}
+
+console.log(checkSign(10));
+
+// Use Recursion to Create a Countdown
+// Only change code below this line
+function countdown(n){
+  if (n < 1) {
+  return [];
+} else {
+  const downArray = countdown(n-1);
+  downArray.unshift(n);
+  return downArray;
+  }
+}
+console.log(countdown(5));
+
+// Only change code above this line
+// function countup(n) {
+// if (n < 1) {
+//   return [];
+// } else {
+//   const countArray = countup(n-1);
+//   countArray.push(n);
+//   return countArray;
+//   }
+// }
+// console.log(countup(5));
+// n = 5 , countup(5-1) n is now 4, push 5 to the array
+// n = 4, countup(4-1) n is now 3, push 4 to the array
+// n = 3, countup (3-1) n is now 2, push 3 to the array
+
+// Use recursion to Create a Range of 
+// Use this video
+// https://youtu.be/LteNqj4DFD8
+function rangeOfNumbers(startNum, endNum) {
+  // if the starting number is greater than the end, return a blank array
+  if (startNum > endNum) {
+    return [];
+    // otherwise
+  } else {
+    // create an arrayB that 
+    const arrayB = rangeOfNumbers(startNum, endNum - 1);
+    arrayB.push(endNum);
+    return arrayB;
+  }
+};
+console.log(rangeOfNumbers(1 , 5));
+
+// Compare Scopes of the var and let Keywords
+function checkScope() {
+  const i = 'function scope';
+  if (true) {
+    let i = 'block scope';
+    console.log('Block scope i is: ', i);
+  }
+  console.log('Function scope i is: ', i);
+  return i;
+}
+
+checkScope();
+
+// Mutate an Array Declared with const
+const s = [5, 7, 2];
+function editInPlace() {
+  // Only change code below this line
+
+  // Using s = [2, 5, 7] would be invalid
+  let newPlace = s.pop();
+  s.unshift(newPlace);
+  console.log(s);
+  return(s);
+  // Only change code above this line
+}
+editInPlace();
+
+// Prevent Object Mutation
+function freezeObj() {
+  const MATH_CONSTANTS = {
+    PI: 3.14
+  };
+  // Only change code below this line
+Object.freeze(MATH_CONSTANTS);
+
+  // Only change code above this line
+  try {
+    MATH_CONSTANTS.PI = 99;
+  } catch(ex) {
+    console.log(ex);
+  }
+  return MATH_CONSTANTS.PI;
+}
+const PI = freezeObj();
+
+// Use Arrow Functions to Write Concise Anonymous Functions
+const magic = () => new Date();
+
+console.log(magic());
+
+// Write Arrow Functions with Parameters
+
